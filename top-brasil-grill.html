@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Brasil Grill - Sabores Autênticos da Amazónia em Lisboa</title>
+    <meta name="description" content="Restaurante brasileiro em Camarate. Tacacá, Maniçoba, Açaí e muito mais. Reserve já!">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* ============================================
+           CORES DA MARCA - ALTERE AQUI SE NECESSÁRIO
+           ============================================ */
+        :root {
+            --verde-floresta: #0B3D2E;
+            --dourado: #D4A017;
+            --castanho: #5C4033;
+            --creme: #FFF6E5;
+            --creme-escuro: #F5E8D3;
+        }
+
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--creme);
+            color: var(--verde-floresta);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--verde-floresta);
+            color: var(--creme);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(11, 61, 46, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--dourado);
+            color: var(--verde-floresta);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
+        }
+
+        /* Section Titles */
+        .section-subtitle {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            color: var(--dourado);
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--verde-floresta);
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        /* ============================================
+           HEADER / NAVEGAÇÃO
+           ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 246, 229, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 0.5rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo img {
+            height: 48px;
+            border-radius: 8px;
+        }
+
+        nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+                gap: 2rem;
+            }
+        }
+
+        nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: white;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        header.scrolled nav a {
+            color: var(--verde-floresta);
+        }
+
+        nav a:hover {
+            color: var(--dourado);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dourado);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .header-cta {
+                display: block;
+            }
+        }
+
+        .header-cta .btn-primary {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled .mobile-menu-btn span {
+            background: var(--verde-floresta);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--creme);
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--verde-floresta);
+            font-size: 1.125rem;
+            border-bottom: 1px solid rgba(11, 61, 46, 0.1);
+        }
+
+        .mobile-menu .btn-primary {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url('https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/8deafcc03fa322d7b31645311606eaed07d022cdf6cadc5218221ad897819afc.png') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(11, 61, 46, 0.95) 0%, rgba(11, 61, 46, 0.7) 40%, transparent 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 650px;
+            padding: 2rem 0;
+        }
+
+        .hero-subtitle {
+            color: var(--dourado);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--creme);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 246, 229, 0.9);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .scroll-indicator div {
+            width: 24px;
+            height: 40px;
+            border: 2px solid rgba(255, 246, 229, 0.5);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        .scroll-indicator span {
+            width: 4px;
+            height: 12px;
+            background: rgba(255, 246, 229, 0.5);
+            border-radius: 2px;
+            animation: scroll 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scroll {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about {
+            padding: 6rem 0;
+            background: var(--creme);
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        @media (min-width: 768px) {
+            .about-image img {
+                height: 500px;
+            }
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            width: 8rem;
+            height: 8rem;
+            background: rgba(212, 160, 23, 0.2);
+            border-radius: 1rem;
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--castanho);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--verde-floresta);
+        }
+
+        .stat:nth-child(2) .stat-number {
+            color: var(--dourado);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--castanho);
+        }
+
+        /* ============================================
+           MENU HIGHLIGHTS
+           ============================================ */
+        .menu-highlights {
+            padding: 6rem 0;
+            background: var(--creme-escuro);
+        }
+
+        .menu-highlights .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: repeat(2, 240px);
+            }
+        }
+
+        .menu-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .menu-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+        }
+
+        .menu-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            z-index: 10;
+        }
+
+        .menu-card.large .menu-card-content {
+            padding: 2rem;
+        }
+
+        .menu-card-tag {
+            color: var(--dourado);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .menu-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .menu-card.large h3 {
+            font-size: 2rem;
+        }
+
+        .menu-card-desc {
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            max-width: 400px;
+        }
+
+        .menu-card-price {
+            color: var(--dourado);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .menu-card.large {
+            height: 300px;
+        }
+
+        @media (min-width: 768px) {
+            .menu-card.large {
+                grid-row: span 2;
+                height: auto;
+            }
+        }
+
+        .menu-small-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .menu-small-grid {
+                display: contents;
+            }
+        }
+
+        .menu-card.small {
+            height: 240px;
+        }
+
+        /* ============================================
+           FULL MENU SECTION
+           ============================================ */
+        .full-menu {
+            padding: 6rem 0;
+            background: var(--creme);
+        }
+
+        .full-menu .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            background: var(--creme-escuro);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--castanho);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-tab:hover {
+            color: var(--verde-floresta);
+        }
+
+        .menu-tab.active {
+            background: var(--verde-floresta);
+            color: var(--creme);
+        }
+
+        .menu-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .menu-category {
+            display: none;
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(11, 61, 46, 0.1);
+        }
+
+        .menu-category.active {
+            display: block;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(11, 61, 46, 0.1);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--verde-floresta);
+            font-size: 1.125rem;
+        }
+
+        .menu-item-desc {
+            color: var(--castanho);
+            font-size: 0.875rem;
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        .menu-item-dots {
+            flex: 1;
+            border-bottom: 2px dotted rgba(11, 61, 46, 0.2);
+            margin: 0 1rem;
+            height: 1rem;
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .menu-item-dots {
+                display: block;
+            }
+        }
+
+        .menu-item-price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dourado);
+            font-size: 1.125rem;
+            white-space: nowrap;
+        }
+
+        /* ============================================
+           REVIEWS SECTION
+           ============================================ */
+        .reviews {
+            padding: 6rem 0;
+            background: var(--creme-escuro);
+            overflow: hidden;
+        }
+
+        .reviews .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: marquee 30s linear infinite;
+        }
+
+        .reviews-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .review-card {
+            flex-shrink: 0;
+            width: 350px;
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(11, 61, 46, 0.1);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-stars svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dourado);
+            color: var(--dourado);
+        }
+
+        .review-text {
+            color: var(--castanho);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .review-author {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--verde-floresta);
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta {
+            padding: 6rem 0;
+            background: url('https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/726f564ef5204c7db690a0f8783a37f0ea4480d70eeb205b7c458ed11d2bb927.png') center/cover no-repeat;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(11, 61, 46, 0.95) 0%, rgba(11, 61, 46, 0.85) 100%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta .section-subtitle {
+            color: var(--dourado);
+        }
+
+        .cta h2 {
+            color: var(--creme);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: rgba(255, 246, 229, 0.8);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* ============================================
+           LOCATION SECTION
+           ============================================ */
+        .location {
+            padding: 6rem 0;
+            background: var(--creme);
+        }
+
+        .location-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .location-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .map-container {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon.green {
+            background: var(--verde-floresta);
+            color: var(--creme);
+        }
+
+        .contact-icon.gold {
+            background: var(--dourado);
+            color: var(--verde-floresta);
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--verde-floresta);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-text {
+            color: var(--castanho);
+            line-height: 1.6;
+        }
+
+        .social-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(11, 61, 46, 0.1);
+        }
+
+        .social-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--verde-floresta);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--verde-floresta);
+            color: var(--creme);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--dourado);
+            transform: translateY(-4px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--verde-floresta);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        .footer-brand img {
+            height: 64px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 246, 229, 0.7);
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .footer-links h4,
+        .footer-social h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dourado);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 246, 229, 0.7);
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--dourado);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 246, 229, 0.3);
+            color: var(--creme);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-link:hover {
+            background: var(--dourado);
+            border-color: var(--dourado);
+            transform: translateY(-4px);
+        }
+
+        .footer-social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-cta a {
+            display: block;
+            color: var(--dourado);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-cta a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 246, 229, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 246, 229, 0.5);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header id="header">
+        <div class="container">
+            <a href="#inicio" class="logo">
+                <img src="https://customer-assets.emergentagent.com/job_brasil-sabor/artifacts/kuwhfuv4_image_2026-03-30_144955180.png" alt="Top Brasil Grill">
+            </a>
+            
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#menu">Menu</a>
+                <a href="#avaliacoes">Avaliações</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="https://www.thefork.pt" target="_blank" class="btn-primary">Reservar Mesa</a>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#inicio" onclick="toggleMobileMenu()">Início</a>
+            <a href="#sobre" onclick="toggleMobileMenu()">Sobre</a>
+            <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
+            <a href="#avaliacoes" onclick="toggleMobileMenu()">Avaliações</a>
+            <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+            <a href="https://www.thefork.pt" target="_blank" class="btn-primary">Reservar Mesa</a>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">Saboreie a Amazónia em Lisboa</p>
+                <h1>Descubra os Sabores Autênticos da Amazónia</h1>
+                <p>Do Tacacá à Maniçoba, experimente o verdadeiro sabor do Brasil em cada mordida</p>
+                <div class="hero-buttons">
+                    <a href="https://www.thefork.pt" target="_blank" class="btn-primary">
+                        Reservar Mesa
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                    <a href="https://www.ubereats.com" target="_blank" class="btn-secondary">
+                        Pedir Online
+                        <i data-lucide="utensils"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div><span></span></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/28f399f66e2140b559f3c9ead92f86996b10661fc6909f5bab1340d84c4ea5d8.png" alt="Interior do restaurante">
+                </div>
+                <div class="about-content">
+                    <p class="section-subtitle">A Nossa História</p>
+                    <h2 class="section-title">Um Sabor do Pará no Coração de Lisboa</h2>
+                    <p>No <strong>Top Brasil Grill</strong>, trazemos os sabores autênticos da Amazónia para o seu prato. Desde o tradicional Tacacá até à reconfortante Maniçoba, cada prato é preparado com carinho e amor, tal como nas nossas casas no Brasil.</p>
+                    <p>A nossa cozinha é uma homenagem às tradições culinárias do Pará, usando ingredientes frescos e receitas passadas de geração em geração. Venha descobrir porque somos o destino favorito dos brasileiros e portugueses que buscam uma experiência gastronómica única.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Autêntico</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5★</span>
+                            <span class="stat-label">Avaliação</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">♥</span>
+                            <span class="stat-label">Com Amor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MENU HIGHLIGHTS
+         ============================================ -->
+    <section class="menu-highlights">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Os Nossos Destaques</p>
+                <h2 class="section-title">Pratos Especiais</h2>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Tacacá - Large Card -->
+                <div class="menu-card large">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/8deafcc03fa322d7b31645311606eaed07d022cdf6cadc5218221ad897819afc.png" alt="Tacacá">
+                    <div class="menu-card-overlay"></div>
+                    <div class="menu-card-content">
+                        <span class="menu-card-tag">Especialidade da Casa</span>
+                        <h3>Tacacá</h3>
+                        <p class="menu-card-desc">Sopa amazônica tradicional servida com tucupi, jambu, camarão seco e goma de tapioca</p>
+                        <span class="menu-card-price">€14,00</span>
+                    </div>
+                </div>
+                
+                <div class="menu-small-grid">
+                    <!-- Maniçoba -->
+                    <div class="menu-card small">
+                        <img src="https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/215fb5f58612a38587423e05e5549e320107c76886abc07d14a4ef19d9138d57.png" alt="Maniçoba">
+                        <div class="menu-card-overlay"></div>
+                        <div class="menu-card-content">
+                            <h3>Maniçoba</h3>
+                            <span class="menu-card-price">€16,50</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Açaí -->
+                    <div class="menu-card small">
+                        <img src="https://images.pexels.com/photos/6637835/pexels-photo-6637835.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Açaí">
+                        <div class="menu-card-overlay"></div>
+                        <div class="menu-card-content">
+                            <h3>Açaí com Tapioca</h3>
+                            <span class="menu-card-price">€8,50</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FULL MENU - ALTERE OS PREÇOS AQUI
+         ============================================ -->
+    <section class="full-menu" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Cardápio Completo</p>
+                <h2 class="section-title">O Nosso Menu</h2>
+            </div>
+            
+            <div class="menu-tabs">
+                <button class="menu-tab active" onclick="showCategory('entradas')">Entradas</button>
+                <button class="menu-tab" onclick="showCategory('pratos')">Pratos Principais</button>
+                <button class="menu-tab" onclick="showCategory('sobremesas')">Sobremesas</button>
+                <button class="menu-tab" onclick="showCategory('bebidas')">Bebidas</button>
+            </div>
+            
+            <div class="menu-content">
+                <!-- ENTRADAS -->
+                <div class="menu-category active" id="entradas">
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Mini Coxinhas</h4>
+                            <p class="menu-item-desc">Coxinhas tradicionais brasileiras em tamanho aperitivo</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€6,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Pão de Queijo</h4>
+                            <p class="menu-item-desc">Autênticos pães de queijo mineiros quentinhos</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€5,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Bolinho de Bacalhau</h4>
+                            <p class="menu-item-desc">Bolinhos crocantes de bacalhau com especiarias</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€7,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Pastel de Carne</h4>
+                            <p class="menu-item-desc">Pastéis recheados com carne moída temperada</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€6,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Dadinhos de Tapioca</h4>
+                            <p class="menu-item-desc">Cubos crocantes de tapioca com geleia de pimenta</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€8,00</span>
+                    </div>
+                </div>
+                
+                <!-- PRATOS PRINCIPAIS -->
+                <div class="menu-category" id="pratos">
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Tacacá</h4>
+                            <p class="menu-item-desc">Sopa amazônica tradicional com tucupi, jambu, camarão e goma</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€14,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Maniçoba</h4>
+                            <p class="menu-item-desc">Prato paraense com folhas de mandioca cozidas e carnes variadas</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€16,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Pato no Tucupi</h4>
+                            <p class="menu-item-desc">Pato cozido em tucupi com jambu - ícone do Pará</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€18,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Vatapá</h4>
+                            <p class="menu-item-desc">Creme baiano de camarão, pão, amendoim e leite de coco</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€15,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Moqueca de Peixe</h4>
+                            <p class="menu-item-desc">Ensopado de peixe fresco com leite de coco e dendê</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€17,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Feijoada Completa</h4>
+                            <p class="menu-item-desc">O clássico brasileiro com todas as carnes e acompanhamentos</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€19,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Picanha na Brasa</h4>
+                            <p class="menu-item-desc">Picanha grelhada no ponto com arroz, farofa e vinagrete</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€22,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Peixe Frito com Açaí</h4>
+                            <p class="menu-item-desc">Peixe da região frito com açaí e farinha d'água</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€16,00</span>
+                    </div>
+                </div>
+                
+                <!-- SOBREMESAS -->
+                <div class="menu-category" id="sobremesas">
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Açaí com Tapioca</h4>
+                            <p class="menu-item-desc">Cremoso açaí da Amazônia com tapioca e granola</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€8,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Pudim de Leite</h4>
+                            <p class="menu-item-desc">Pudim cremoso de leite condensado</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€5,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Brigadeiro</h4>
+                            <p class="menu-item-desc">Doce brasileiro de chocolate com granulado</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€3,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Mousse de Maracujá</h4>
+                            <p class="menu-item-desc">Mousse leve e refrescante de maracujá</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€6,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Tapioca com Nutella</h4>
+                            <p class="menu-item-desc">Tapioca recheada com Nutella e banana</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€7,00</span>
+                    </div>
+                </div>
+                
+                <!-- BEBIDAS -->
+                <div class="menu-category" id="bebidas">
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Caipirinha Clássica</h4>
+                            <p class="menu-item-desc">Limão, cachaça, açúcar e gelo</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€7,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Guaraná Antarctica</h4>
+                            <p class="menu-item-desc">Refrigerante brasileiro tradicional</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€3,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Suco de Açaí</h4>
+                            <p class="menu-item-desc">Suco natural de açaí puro</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€5,00</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Suco de Cupuaçu</h4>
+                            <p class="menu-item-desc">Fruta amazônica refrescante</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€5,50</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-info">
+                            <h4 class="menu-item-name">Cerveja Brahma</h4>
+                            <p class="menu-item-desc">Cerveja brasileira gelada</p>
+                        </div>
+                        <div class="menu-item-dots"></div>
+                        <span class="menu-item-price">€4,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         REVIEWS
+         ============================================ -->
+    <section class="reviews" id="avaliacoes">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Testemunhos</p>
+                <h2 class="section-title">O Que Dizem os Nossos Clientes</h2>
+            </div>
+        </div>
+        
+        <div class="reviews-track">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"Nova experiência! Fomos hoje e simplesmente perfeito, ambiente acolhedor lembrando meu estado Pará. A comida é autêntica e deliciosa!"</p>
+                <p class="review-author">— Amanda Letícia</p>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"De entrada pedi mini coxinhas e depois um açaí com peixe frito e um tacacá. Delicioso! Voltarei com certeza."</p>
+                <p class="review-author">— Taís Rezende</p>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"Melhor maniçoba fora do Brasil! O sabor é incrível e o atendimento é muito acolhedor. Recomendo a todos!"</p>
+                <p class="review-author">— Carlos Silva</p>
+            </div>
+            
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"Finalmente encontrei comida paraense autêntica em Lisboa! O pato no tucupi estava divino. Ambiente muito agradável."</p>
+                <p class="review-author">— Maria Santos</p>
+            </div>
+            
+            <!-- Review 5 -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"Excelente restaurante! A feijoada de sábado é imperdível. Funcionários simpáticos e preços justos."</p>
+                <p class="review-author">— João Pereira</p>
+            </div>
+            
+            <!-- Duplicados para loop contínuo -->
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"Nova experiência! Fomos hoje e simplesmente perfeito, ambiente acolhedor lembrando meu estado Pará. A comida é autêntica e deliciosa!"</p>
+                <p class="review-author">— Amanda Letícia</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"De entrada pedi mini coxinhas e depois um açaí com peixe frito e um tacacá. Delicioso! Voltarei com certeza."</p>
+                <p class="review-author">— Taís Rezende</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="review-text">"Melhor maniçoba fora do Brasil! O sabor é incrível e o atendimento é muito acolhedor. Recomendo a todos!"</p>
+                <p class="review-author">— Carlos Silva</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <p class="section-subtitle">Reserve Já</p>
+                <h2 class="section-title">Pronto Para Uma Experiência Amazônica?</h2>
+                <p>Reserve a sua mesa ou peça os nossos pratos para entrega. Sabores autênticos do Brasil à sua espera!</p>
+                <div class="cta-buttons">
+                    <a href="https://www.thefork.pt" target="_blank" class="btn-primary">
+                        Reservar no TheFork
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                    <a href="https://www.ubereats.com" target="_blank" class="btn-secondary">
+                        Pedir no Uber Eats
+                        <i data-lucide="utensils"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         LOCATION - ALTERE O TELEFONE AQUI
+         ============================================ -->
+    <section class="location" id="contacto">
+        <div class="container">
+            <div class="location-grid">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3109.8584768372687!2d-9.127857684679893!3d38.79744227958861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19328adf68e0fd%3A0x41b4848ff!2sR.%20Guilherme%20Gomes%20Fernandes%2012%2C%202680-115%20Camarate!5e0!3m2!1sen!2spt!4v1680000000000!5m2!1sen!2spt"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <div class="contact-info">
+                    <p class="section-subtitle">Visite-nos</p>
+                    <h2 class="section-title">Onde Estamos</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon green">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div>
+                            <p class="contact-label">Morada</p>
+                            <p class="contact-text">R. Guilherme Gomes Fernandes 12<br>2680-115 Camarate, Portugal</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon gold">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <div>
+                            <p class="contact-label">Horário</p>
+                            <p class="contact-text">Segunda a Sexta: 12h00 - 22h00<br>Sábado e Domingo: 12h00 - 23h00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon green">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <p class="contact-label">Contacto</p>
+                            <!-- ========== ALTERE O TELEFONE AQUI ========== -->
+                            <p class="contact-text">Telefone: +351 XXX XXX XXX<br>Email: info@topbrasilgrill.pt</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-section">
+                        <h4>Siga-nos</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/topbrasilgrill/" target="_blank" class="social-link">
+                                <i data-lucide="instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/people/Topbrasil-Grill/100085253102792/" target="_blank" class="social-link">
+                                <i data-lucide="facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="https://customer-assets.emergentagent.com/job_brasil-sabor/artifacts/kuwhfuv4_image_2026-03-30_144955180.png" alt="Top Brasil Grill">
+                    <p>Sabores autênticos da Amazónia no coração de Lisboa. Venha descobrir a verdadeira culinária brasileira.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <a href="#inicio">Início</a>
+                    <a href="#sobre">Sobre Nós</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#avaliacoes">Avaliações</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer-social-links">
+                        <a href="https://www.instagram.com/topbrasilgrill/" target="_blank" class="footer-social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/people/Topbrasil-Grill/100085253102792/" target="_blank" class="footer-social-link">
+                            <i data-lucide="facebook"></i>
+                        </a>
+                    </div>
+                    <div class="footer-cta">
+                        <a href="https://www.thefork.pt" target="_blank">Reserve no TheFork →</a>
+                        <a href="https://www.ubereats.com" target="_blank">Peça no Uber Eats →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Top Brasil Grill. Todos os direitos reservados.</p>
+                <p>Feito com ❤️ em Lisboa</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+        
+        // Menu tabs
+        function showCategory(category) {
+            // Remove active from all tabs and categories
+            document.querySelectorAll('.menu-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.menu-category').forEach(cat => cat.classList.remove('active'));
+            
+            // Add active to clicked tab and corresponding category
+            event.target.classList.add('active');
+            document.getElementById(category).classList.add('active');
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
