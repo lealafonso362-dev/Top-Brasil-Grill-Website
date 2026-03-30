@@ -21,35 +21,77 @@ const IMAGES = {
 // Menu data
 const menuData = {
   entradas: [
-    { name: "Mini Coxinhas", description: "Coxinhas tradicionais brasileiras em tamanho aperitivo", price: "€6,50" },
-    { name: "Pão de Queijo", description: "Autênticos pães de queijo mineiros quentinhos", price: "€5,00" },
-    { name: "Bolinho de Bacalhau", description: "Bolinhos crocantes de bacalhau com especiarias", price: "€7,50" },
-    { name: "Pastel de Carne", description: "Pastéis recheados com carne moída temperada", price: "€6,00" },
-    { name: "Dadinhos de Tapioca", description: "Cubos crocantes de tapioca com geleia de pimenta", price: "€8,00" }
+    { name: "Queijo", description: "Porção de queijo", price: "€2,00" },
+    { name: "Azeitona", description: "Porção de azeitonas", price: "€2,00" },
+    { name: "Pão", description: "Pão fresco", price: "€1,00" },
+    { name: "Pão de Alho", description: "Pão de alho crocante", price: "€3,80" },
+    { name: "Coxinha Grande", description: "Coxinha tradicional brasileira", price: "€2,50" },
+    { name: "Mini Coxinhas (10 un.)", description: "Coxinhas em tamanho aperitivo", price: "€5,00" },
+    { name: "Enroladinho de Queijo e Fiambre", description: "Enroladinhos crocantes", price: "€2,50" },
+    { name: "Coxinha c/ Massa de Mandioca", description: "Coxinha especial com massa de mandioca", price: "€3,50" }
+  ],
+  petiscos: [
+    { name: "Camarão ao Alho", description: "Camarão salteado no alho", price: "€12,50" },
+    { name: "Torresmo", description: "Torresmo crocante", price: "€7,00" },
+    { name: "Frango a Passarinho", description: "Frango frito em pedaços", price: "€14,00" },
+    { name: "Asinhas de Frango", description: "Asinhas de frango fritas", price: "€7,00" },
+    { name: "Batata Cheddar e Bacon", description: "Batata frita com cheddar e bacon", price: "€10,00" },
+    { name: "Mandioca Frita", description: "Mandioca frita crocante", price: "€8,00" },
+    { name: "Carne Seca", description: "Porção de carne seca", price: "€13,00" },
+    { name: "Carne Seca com Mandioca", description: "Carne seca com mandioca frita", price: "€18,50" },
+    { name: "Torresmo com Mandioca", description: "Torresmo com mandioca frita", price: "€13,50" },
+    { name: "Calabresa Cebolada", description: "Calabresa com cebola", price: "€10,00" },
+    { name: "Isca de Peixe Frito", description: "Iscas de peixe empanadas", price: "€7,00" },
+    { name: "Dourada Frita", description: "Dourada frita inteira", price: "€13,50" }
   ],
   pratos: [
-    { name: "Tacacá", description: "Sopa amazônica tradicional com tucupi, jambu, camarão e goma", price: "€14,00" },
-    { name: "Maniçoba", description: "Prato paraense com folhas de mandioca cozidas e carnes variadas", price: "€16,50" },
-    { name: "Pato no Tucupi", description: "Pato cozido em tucupi com jambu - ícone do Pará", price: "€18,00" },
-    { name: "Vatapá", description: "Creme baiano de camarão, pão, amendoim e leite de coco", price: "€15,00" },
-    { name: "Moqueca de Peixe", description: "Ensopado de peixe fresco com leite de coco e dendê", price: "€17,50" },
-    { name: "Feijoada Completa", description: "O clássico brasileiro com todas as carnes e acompanhamentos", price: "€19,00" },
-    { name: "Picanha na Brasa", description: "Picanha grelhada no ponto com arroz, farofa e vinagrete", price: "€22,00" },
-    { name: "Peixe Frito com Açaí", description: "Peixe da região frito com açaí e farinha d'água", price: "€16,00" }
+    { name: "Tacacá", description: "Sopa amazônica com tucupi, jambu, camarão e goma", price: "€10,00" },
+    { name: "Maniçoba", description: "Prato paraense com folhas de mandioca e carnes", price: "€12,80" },
+    { name: "Vatapá", description: "Creme baiano de camarão e amendoim", price: "€10,00" },
+    { name: "Carurú", description: "Prato típico baiano com quiabo", price: "€10,00" },
+    { name: "Vataçoba", description: "Combinação de vatapá com maniçoba", price: "€19,00" },
+    { name: "Prato de Picanha", description: "Acomp: feijão preto, arroz, batata, farofa e banana", price: "€15,00" },
+    { name: "Picanha c/ Queijo Coalho", description: "Picanha, feijão tropeiro, arroz e queijo coalho", price: "€24,00" },
+    { name: "Espetada de Churrasco", description: "Carne de vaca, feijão tropeiro, arroz, vinagrete", price: "€12,00" },
+    { name: "Bitoque", description: "Bife de vaca, arroz, ovo e batata", price: "€10,00" },
+    { name: "Frango Grelhado", description: "Peito de frango, arroz e batata", price: "€8,50" },
+    { name: "Frango à Milanesa", description: "Filé de frango empanado, arroz e batata", price: "€10,00" },
+    { name: "Parmegiana", description: "Carne ou frango com queijo, molho, arroz e batata", price: "€13,50" },
+    { name: "Rodízio de Picanha", description: "Picanha, feijão, arroz, batata, farofa e banana", price: "€25,00" },
+    { name: "Tábua de Petisco Grande", description: "Queijo, calabresa, carne, torresmos, frango, mandioca", price: "€35,00" },
+    { name: "Tábua de Petisco Pequena", description: "Queijo, calabresa, torresmos, frango e batata", price: "€25,00" }
   ],
   sobremesas: [
-    { name: "Açaí com Tapioca", description: "Cremoso açaí da Amazônia com tapioca e granola", price: "€8,50" },
-    { name: "Pudim de Leite", description: "Pudim cremoso de leite condensado", price: "€5,50" },
-    { name: "Brigadeiro", description: "Doce brasileiro de chocolate com granulado", price: "€3,50" },
-    { name: "Mousse de Maracujá", description: "Mousse leve e refrescante de maracujá", price: "€6,00" },
-    { name: "Tapioca com Nutella", description: "Tapioca recheada com Nutella e banana", price: "€7,00" }
+    { name: "Açaí 300ml", description: "Açaí cremoso da Amazônia", price: "€12,00" },
+    { name: "Açaí 400ml", description: "Açaí cremoso da Amazônia", price: "€15,00" },
+    { name: "Açaí Meio Litro", description: "Açaí cremoso da Amazônia", price: "€20,00" },
+    { name: "Açaí 1 Litro", description: "Açaí cremoso da Amazônia", price: "€40,00" },
+    { name: "Creme de Cupuaçu", description: "Sobremesa cremosa de cupuaçu", price: "€4,00" },
+    { name: "Pudim de Leite", description: "Pudim cremoso de leite condensado", price: "€3,50" },
+    { name: "Sobremesa de Biscoito Oreo", description: "Delícia de biscoito Oreo", price: "€3,00" },
+    { name: "Bolo de Pote", description: "Bolo cremoso no pote", price: "€4,50" },
+    { name: "Pudim de Frutas", description: "Consultar atendentes para quais frutas", price: "€4,00" }
   ],
   bebidas: [
-    { name: "Caipirinha Clássica", description: "Limão, cachaça, açúcar e gelo", price: "€7,00" },
-    { name: "Guaraná Antarctica", description: "Refrigerante brasileiro tradicional", price: "€3,00" },
-    { name: "Suco de Açaí", description: "Suco natural de açaí puro", price: "€5,00" },
-    { name: "Suco de Cupuaçu", description: "Fruta amazônica refrescante", price: "€5,50" },
-    { name: "Cerveja Brahma", description: "Cerveja brasileira gelada", price: "€4,00" }
+    { name: "Café", description: "", price: "€1,00" },
+    { name: "Meia de Leite", description: "", price: "€1,50" },
+    { name: "Galão", description: "", price: "€1,50" },
+    { name: "Água Pequena", description: "", price: "€1,00" },
+    { name: "Água Grande", description: "", price: "€2,00" },
+    { name: "Coca Cola / Fanta / Sumol", description: "", price: "€2,00" },
+    { name: "Guaraná", description: "", price: "€2,00" },
+    { name: "Cupuaçu (Sumo Natural)", description: "", price: "€4,00" },
+    { name: "Maracujá / Acerola (Sumo Natural)", description: "", price: "€3,50" },
+    { name: "Imperial Sagres / Mini", description: "", price: "€1,50" },
+    { name: "Imperial Heineken", description: "", price: "€2,00" },
+    { name: "Caneca Sagres", description: "", price: "€3,50" },
+    { name: "Caneca Heineken", description: "", price: "€4,50" },
+    { name: "Cerveja Brasileira", description: "", price: "€3,50" },
+    { name: "Caipirinha de Limão", description: "", price: "€7,00" },
+    { name: "Caipirinha de Açaí", description: "", price: "€8,50" },
+    { name: "Gim", description: "", price: "€7,00" },
+    { name: "Sangria de Vinho", description: "", price: "€12,00" },
+    { name: "Sangria de Espumante", description: "", price: "€15,00" }
   ]
 };
 
@@ -380,7 +422,7 @@ const MenuHighlights = () => (
             <span className="text-[#D4A017] font-bold text-sm uppercase tracking-wider">Especialidade da Casa</span>
             <h3 className="font-montserrat text-3xl md:text-4xl font-bold mt-2">Tacacá</h3>
             <p className="text-white/80 mt-2 max-w-md">Sopa amazônica tradicional servida com tucupi, jambu, camarão seco e goma de tapioca</p>
-            <span className="inline-block mt-4 text-2xl font-montserrat font-bold text-[#D4A017]">€14,00</span>
+            <span className="inline-block mt-4 text-2xl font-montserrat font-bold text-[#D4A017]">€10,00</span>
           </div>
         </motion.div>
 
@@ -403,7 +445,7 @@ const MenuHighlights = () => (
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
             <h3 className="font-montserrat text-xl font-bold">Maniçoba</h3>
-            <span className="text-[#D4A017] font-bold mt-1 block">€16,50</span>
+            <span className="text-[#D4A017] font-bold mt-1 block">€12,80</span>
           </div>
         </motion.div>
 
@@ -426,7 +468,7 @@ const MenuHighlights = () => (
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
             <h3 className="font-montserrat text-xl font-bold">Açaí com Tapioca</h3>
-            <span className="text-[#D4A017] font-bold mt-1 block">€8,50</span>
+            <span className="text-[#D4A017] font-bold mt-1 block">€12,00</span>
           </div>
         </motion.div>
 
@@ -449,7 +491,7 @@ const MenuHighlights = () => (
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
             <h3 className="font-montserrat text-xl font-bold">Mini Coxinhas</h3>
-            <span className="text-[#D4A017] font-bold mt-1 block">€6,50</span>
+            <span className="text-[#D4A017] font-bold mt-1 block">€5,00</span>
           </div>
         </motion.div>
       </div>
@@ -481,11 +523,18 @@ const FullMenuSection = () => (
             Entradas
           </TabsTrigger>
           <TabsTrigger 
+            value="petiscos" 
+            className="menu-tab px-6 py-3 rounded-full bg-[#F5E8D3] data-[state=active]:bg-[#0B3D2E] data-[state=active]:text-[#FFF6E5] transition-all"
+            data-testid="tab-petiscos"
+          >
+            Petiscos
+          </TabsTrigger>
+          <TabsTrigger 
             value="pratos" 
             className="menu-tab px-6 py-3 rounded-full bg-[#F5E8D3] data-[state=active]:bg-[#0B3D2E] data-[state=active]:text-[#FFF6E5] transition-all"
             data-testid="tab-pratos"
           >
-            Pratos Principais
+            Pratos
           </TabsTrigger>
           <TabsTrigger 
             value="sobremesas" 
@@ -672,8 +721,10 @@ const LocationSection = () => (
               <div>
                 <h4 className="font-montserrat font-bold text-[#0B3D2E] mb-1">Horário</h4>
                 <p className="text-[#5C4033] font-lora">
-                  Segunda a Sexta: 12h00 - 22h00<br />
-                  Sábado e Domingo: 12h00 - 23h00
+                  Segunda: Encerrado<br />
+                  Terça a Sexta: 12:30 - 23:00<br />
+                  Sábado: 12:30 - 02:00<br />
+                  Domingo: 12:30 - 19:30
                 </p>
               </div>
             </div>
@@ -685,8 +736,8 @@ const LocationSection = () => (
               <div>
                 <h4 className="font-montserrat font-bold text-[#0B3D2E] mb-1">Contacto</h4>
                 <p className="text-[#5C4033] font-lora">
-                  Telefone: +351 XXX XXX XXX<br />
-                  Email: info@topbrasilgrill.pt
+                  Telefone: +351 21 947 3134<br />
+                  WhatsApp: 924 886 582
                 </p>
               </div>
             </div>
