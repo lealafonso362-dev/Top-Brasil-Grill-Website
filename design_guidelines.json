@@ -1,0 +1,130 @@
+{
+  "theme": "light",
+  "archetype": "1 (Organic & Earthy)",
+  "design_philosophy": "Warm, authentic, vibrant, and slightly luxurious. Blending the deep roots of the Amazon with the elegant dining culture of Lisbon. We prioritize generous spacing, rich textures, and editorial typography.",
+  "colors": {
+    "background": "#FFF6E5",
+    "foreground": "#0B3D2E",
+    "primary": "#0B3D2E",
+    "primary_foreground": "#FFF6E5",
+    "secondary": "#D4A017",
+    "secondary_foreground": "#0B3D2E",
+    "accent": "#D4A017",
+    "accent_foreground": "#FFF6E5",
+    "muted": "#F5E8D3",
+    "muted_foreground": "#5C4033",
+    "border": "rgba(11, 61, 46, 0.1)"
+  },
+  "typography": {
+    "heading_font": "Montserrat, sans-serif",
+    "body_font": "Lora, serif",
+    "rules": {
+      "h1": "text-5xl md:text-6xl font-black tracking-tighter leading-none",
+      "h2": "text-4xl md:text-5xl font-bold tracking-tight text-[#0B3D2E]",
+      "h3": "text-2xl font-bold tracking-tight text-[#0B3D2E]",
+      "body": "text-lg md:text-xl font-medium leading-relaxed text-[#5C4033]",
+      "accent": "text-sm uppercase tracking-[0.2em] font-bold text-[#D4A017]"
+    }
+  },
+  "layout_and_spacing": {
+    "section_padding": "py-24 md:py-32",
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8",
+    "radius": "rounded-2xl"
+  },
+  "components": {
+    "header": {
+      "style": "Crystal Glassmorphism. bg-[#FFF6E5]/80 backdrop-blur-xl border-b border-[#0B3D2E]/10. Sticky top with z-50.",
+      "links": "Hover state: text-[#D4A017] transition-colors"
+    },
+    "buttons": {
+      "primary": "bg-[#0B3D2E] text-[#FFF6E5] hover:bg-[#0B3D2E]/90 hover:-translate-y-1 transition-all duration-300 rounded-full px-8 py-4 font-bold tracking-wide",
+      "secondary": "bg-[#D4A017] text-[#0B3D2E] hover:bg-[#D4A017]/90 hover:-translate-y-1 transition-all duration-300 rounded-full px-8 py-4 font-bold tracking-wide",
+      "outline": "border-2 border-[#0B3D2E] text-[#0B3D2E] hover:bg-[#0B3D2E] hover:text-[#FFF6E5] transition-all duration-300 rounded-full px-8 py-4 font-bold"
+    },
+    "cards": {
+      "menu_highlight": "Relative group overflow-hidden rounded-2xl. Image scales up on hover. Gradient overlay from bottom (black/80 to transparent). Text anchored at bottom.",
+      "review_card": "bg-white border border-[#0B3D2E]/10 p-8 rounded-2xl shadow-sm. Lora italic for the review text. Gold stars."
+    }
+  },
+  "sections_instructions": {
+    "hero": {
+      "layout": "Full-screen (min-h-screen) relative flex items-center.",
+      "background": "Use 'tacaca_soup' image as a full cover background. Apply a parallax effect if possible. Overlay with bg-gradient-to-r from-[#0B3D2E]/90 via-[#0B3D2E]/60 to-transparent.",
+      "content": "Left-aligned inside container. Subtitle: 'Savor the Amazon in Lisbon' in gold accent. H1: 'Top Brasil Grill' or similar brand punch. CTA buttons to Menu and Reservations."
+    },
+    "about": {
+      "layout": "Asymmetric 2-column grid. md:grid-cols-2 gap-16 items-center.",
+      "visual": "Use 'restaurant_interior' image. Add an elegant rounded-t-full mask or a subtle offset border.",
+      "text": "Heading: 'A Taste of Pará in the Heart of Lisbon'. Body: Lora font, rich storytelling about authentic ingredients."
+    },
+    "menu_highlights": {
+      "layout": "Tetris Grid (Bento) using 4 images (Tacaca, Manicoba, Acai, Coxinha).",
+      "items": [
+        "Tacacá: col-span-12 md:col-span-8 row-span-2 (Large Hero card)",
+        "Maniçoba: col-span-12 md:col-span-4 row-span-1",
+        "Açaí: col-span-12 md:col-span-4 row-span-1",
+        "Mini Coxinhas: col-span-12 md:col-span-4 row-span-1"
+      ]
+    },
+    "full_digital_menu": {
+      "layout": "Text-based elegant list below highlights. Grouped by categories (Starters, Mains, Desserts). Use dotted leaders connecting dish name to price.",
+      "typography": "Dish names in Montserrat bold, descriptions in Lora, Prices in Gold."
+    },
+    "reviews": {
+      "layout": "Full width section with light muted background (#F5E8D3).",
+      "carousel": "Use react-fast-marquee for a slow, continuous scroll of review cards."
+    },
+    "reservations_ordering": {
+      "layout": "Wide banner container. Background uses 'hero_amazon_leaves' with dark green overlay.",
+      "content": "Centered text in cream. Two large prominent buttons: 'Book via TheFork' (Primary) and 'Order via Uber Eats' (Secondary Gold)."
+    },
+    "location_contact": {
+      "layout": "2-column grid. Left: Minimalist map placeholder/iframe. Right: Contact details (Address, Hours, Phone) using large typographic hierarchy."
+    },
+    "footer": {
+      "style": "Dark background (#0B3D2E). Huge brand typography. Social links (IG, FB). Text in #FFF6E5."
+    }
+  },
+  "media": {
+    "logo": {
+      "url": "https://customer-assets.emergentagent.com/job_brasil-sabor/artifacts/kuwhfuv4_image_2026-03-30_144955180.png",
+      "alt": "Top Brasil Grill Logo"
+    },
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/8deafcc03fa322d7b31645311606eaed07d022cdf6cadc5218221ad897819afc.png",
+      "alt": "Authentic Tacaca Soup"
+    },
+    "restaurant_interior": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/28f399f66e2140b559f3c9ead92f86996b10661fc6909f5bab1340d84c4ea5d8.png",
+      "alt": "Warm authentic Brazilian restaurant interior"
+    },
+    "hero_amazon_leaves": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/726f564ef5204c7db690a0f8783a37f0ea4480d70eeb205b7c458ed11d2bb927.png",
+      "alt": "Amazon rainforest leaves parallax background"
+    },
+    "menu_images": [
+      {
+        "name": "Maniçoba",
+        "url": "https://static.prod-images.emergentagent.com/jobs/e37e1795-d1f6-48b2-b1ce-5d0991a50020/images/215fb5f58612a38587423e05e5549e320107c76886abc07d14a4ef19d9138d57.png"
+      },
+      {
+        "name": "Açaí Bowl",
+        "url": "https://images.pexels.com/photos/6637835/pexels-photo-6637835.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      },
+      {
+        "name": "Mini Coxinhas",
+        "url": "https://images.unsplash.com/photo-1559141680-d0bd7bc5af84?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxicmF6aWxpYW4lMjBjaGVlc2UlMjBicmVhZHxlbnwwfHx8fDE3NzQ4Nzg5MjV8MA&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "animation_guidelines": {
+    "scrolling": "MUST use Lenis for smooth scrolling to provide a premium weight and momentum to the page.",
+    "hover_states": "All buttons must translate slightly up (-translate-y-1) and have a subtle box-shadow increase.",
+    "reveal": "Use framer-motion to slightly fade up (y: 20, opacity: 0 -> y: 0, opacity: 1) text blocks and images as they enter the viewport."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure white/cream text over images has a text-shadow or a dark gradient overlay behind it to meet 4.5:1 ratio.",
+    "test_ids": "All buttons, links, and forms MUST have a data-testid attribute in kebab-case (e.g., data-testid='hero-reserve-button')."
+  }
+}
